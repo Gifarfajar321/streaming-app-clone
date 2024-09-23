@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.clip-curve-top {
+  clip-path: ellipse(300% 100% at 50% 100%);
+}
+
+.bg-card-gradient {
+background: rgb(0,15,59);
+background: linear-gradient(142deg, rgba(0,15,59,0.8518589564732143) 14%, rgba(67,24,69,0.849057836025035) 100%);
+}
