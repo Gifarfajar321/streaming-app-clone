@@ -3,7 +3,7 @@ const SmallDescription = (props) => {
 
   return (
     <p
-      className={`font-medium text-base text-white mb-6 xl:text-xl xl:font-semibold ${className}`}
+      className={`font-medium text-base mb-6  ${className}`}
     >
       {children}
     </p>

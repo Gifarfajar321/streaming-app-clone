@@ -7,6 +7,18 @@
 }
 
 .bg-card-gradient {
-background: rgb(0,15,59);
-background: linear-gradient(142deg, rgba(0,15,59,0.8518589564732143) 14%, rgba(67,24,69,0.849057836025035) 100%);
+  background: rgb(0, 15, 59);
+  background: linear-gradient(
+    142deg,
+    rgba(0, 15, 59, 0.8518589564732143) 14%,
+    rgba(67, 24, 69, 0.849057836025035) 100%
+  );
+}
+
+.detail-click {
+  @apply h-auto min-h-24 py-5;
+}
+
+.toggle-btn {
+  @apply -rotate-45
 }
