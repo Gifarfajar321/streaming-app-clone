@@ -7,18 +7,11 @@ import Judul from "./components/elements/Judul";
 import SmallDescription from "./components/elements/SmallDescription";
 import CardReason from "./components/elements/card/CardReason";
 import CardFilm from "./components/elements/card/CardFilm";
-import { useRef } from "react";
 import "../src/index.css";
 import GroupCardToggle from "./components/elements/card/CardQ&A/GroupCardToggle";
+import InputJoin from "./components/elements/inputJoin/InputJoin";
 
 const App = () => {
-  // const DetailRef = useRef(null);
-
-  // const DetailClick = (e) => {
-  //   e.preventDefault();
-  //   DetailRef.current.classList.toggle("detail-click");
-  // };
-
   return (
     <>
       <header className="py-6 absolute top-0 left-0 right-0 bg-transparent z-10">
@@ -65,7 +58,7 @@ const App = () => {
             </SmallDescription>
           </div>
           <div className="w-full px-10 mx-auto mt-5 sm:flex sm:items-start sm:gap-3 md:w-3/4 lg:w-3/5 xl:px-32">
-            <label
+            {/* <label
               htmlFor="email"
               className="w-full h-auto relative group mb-5 peer sm:mb-0"
             >
@@ -81,11 +74,12 @@ const App = () => {
               <p className="font-bold text-xs text-red-700 invisible mt-2 my-1 peer-invalid:visible">
                 Masukan aamat email yang valid
               </p>
-            </label>
+            </label> */}
+            <InputJoin></InputJoin>
 
             <button
               href=""
-              className="block w-1/3 text-base font-medium text-center leading-loose text-white mx-auto bg-red-700 ring-1 ring-red-700 rounded-md after:content-[''] after:w-3 after:h-3 after:inline-block after:ml-1 after:border-l-2 after:border-t-2 after:border-white after:rotate-[135deg] sm:py-[0.5rem] md:py-[0.6rem] md:text-xl lg:w-1/4"
+              className="block w-1/3 py-1 text-lg font-medium text-center leading-loose text-white mx-auto bg-red-700 ring-1 ring-red-700 rounded-md after:content-[''] after:w-3 after:h-3 after:inline-block after:ml-1 after:border-l-2 after:border-t-2 after:border-white after:rotate-[135deg] sm:py-[0.5rem] md:py-[0.6rem] md:text-xl lg:w-1/4"
             >
               Mulai
             </button>
