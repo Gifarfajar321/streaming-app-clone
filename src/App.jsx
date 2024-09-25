@@ -1,7 +1,6 @@
 import background from "./assets/Image/netflix-img/images/header-image.png";
-import logo from "./assets/Image/netflix-img/images/pngwing.com.png";
-import translate from "./assets/Image/netflix-img/images/translate.png";
 import dropdown from "./assets/Image/netflix-img/images/down-icon.png";
+import logo from "./assets/Image/netflix-img/images/pngwing.com.png";
 import SubJudul from "./components/elements/SubJudul";
 import Judul from "./components/elements/Judul";
 import SmallDescription from "./components/elements/SmallDescription";
@@ -10,6 +9,9 @@ import CardFilm from "./components/elements/card/CardFilm";
 import "../src/index.css";
 import GroupCardToggle from "./components/elements/card/CardQ&A/GroupCardToggle";
 import InputJoin from "./components/elements/inputJoin/InputJoin";
+import Button from "./components/elements/inputJoin/Button";
+import BtnToggle from "./components/elements/BtnToggle/BtnToggle";
+import translate from "./assets/Image/netflix-img/images/translate.png";
 
 const App = () => {
   return (
@@ -20,20 +22,17 @@ const App = () => {
             <img src={logo} alt="" />
           </div>
           <div className="flex gap-2">
-            <a
-              href=""
-              className="font-medium text-base text-white px-4 py-0.5 bg-transparent rounded-md border border-gray-500 flex items-center gap-1"
+            <BtnToggle
+              toggleClassName="w-3/4 border-zinc-600"
+              icon={translate}
+              iconClassName="w-5 filter invert"
+              spanClassName="hidden"
             >
-              <img src={translate} alt="" className="w-5 filter invert" />{" "}
-              <span className="hidden sm:block">Bahasa Indonesia</span>
-              <span className="ml-2 sm:ml-10">
-                {" "}
-                <img src={dropdown} alt="" className="w-2" />
-              </span>
-            </a>
+              Bahasa Indonesia
+            </BtnToggle>
             <a
               href=""
-              className="font-medium text-sm text-white px-4 py-0.5 bg-red-700 rounded-md"
+              className="font-medium text-base text-white px-4 py-1.5 bg-red-700 rounded"
             >
               Masuk
             </a>
@@ -44,7 +43,7 @@ const App = () => {
         className="pt-28 pb-32 bg-black bg-cover bg-center relative after:content-[' '] after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:bg-black after:opacity-80 after:z-0 lg:min-h-screnn"
         style={{ backgroundImage: `url(${background})` }}
       >
-        <div className="container relative z-10">
+        <div className="container relative z-10 xl:mx-auto">
           <div className="w-full mx-auto px-10 text-center mt-5 md:w-2/3 md:px-0 lg:w-1/2 xl:pt-20 xl:px-4">
             <Judul className="text-white">
               Film, acara TV tak terbatas dan Banyak lagi
@@ -58,31 +57,10 @@ const App = () => {
             </SmallDescription>
           </div>
           <div className="w-full px-10 mx-auto mt-5 sm:flex sm:items-start sm:gap-3 md:w-3/4 lg:w-3/5 xl:px-32">
-            {/* <label
-              htmlFor="email"
-              className="w-full h-auto relative group mb-5 peer sm:mb-0"
-            >
-              <input
-                type="email"
-                name="email"
-                id="email"
-                className="w-full h-full text-sm text-white bg-transparent ring-1 ring-white rounded-md px-5 pt-5 z-10 pb-2 outline-none peer invalid:ring-red-700"
-              />
-              <span className="text-sm text-slate-600 whitespace-nowrap absolute left-5 top-1 -translate-y-1/2  peer-focus:-translate-y-4 peer-focus:text-xs peer-focus:transition-all duration-300 ease-in-out sm:top-6">
-                Alamat Email
-              </span>
-              <p className="font-bold text-xs text-red-700 invisible mt-2 my-1 peer-invalid:visible">
-                Masukan aamat email yang valid
-              </p>
-            </label> */}
-            <InputJoin></InputJoin>
-
-            <button
-              href=""
-              className="block w-1/3 py-1 text-lg font-medium text-center leading-loose text-white mx-auto bg-red-700 ring-1 ring-red-700 rounded-md after:content-[''] after:w-3 after:h-3 after:inline-block after:ml-1 after:border-l-2 after:border-t-2 after:border-white after:rotate-[135deg] sm:py-[0.5rem] md:py-[0.6rem] md:text-xl lg:w-1/4"
-            >
-              Mulai
-            </button>
+            <InputJoin id="email" errorHandle="Masukan alamat email yang vaild">
+              Alamat email
+            </InputJoin>
+            <Button>Mulai</Button>
           </div>
         </div>
       </section>
@@ -95,22 +73,24 @@ const App = () => {
                   <SubJudul className="text-white">
                     Sedang Trend Sekarang
                   </SubJudul>
-                  <div className="block lg:flex lg:w-1/3  gap-5">
-                    <div className="w-full px-4 py-2 mb-3 bg-transparent rounded-md border border-slate-700 flex justify-between items-center">
-                      <a href="" className="font-medium text-base text-white">
-                        Indonesia
-                      </a>
-                      <img src={dropdown} alt="" className="w-3" />
-                    </div>
-                    <div className="w-full px-4 py-2 mb-3 bg-transparent rounded-md border border-slate-700 flex justify-between items-center">
-                      <a href="" className="font-medium text-base text-white">
-                        Film
-                      </a>
-                      <img src={dropdown} alt="" className="w-3" />
-                    </div>
+                  <div className="block lg:flex lg:w-1/4 gap-5">
+                    <BtnToggle
+                      toggleClassName="w-full py-2 mb-3 border-zinc-700 justify-between"
+                      iconClassName="hidden"
+                      spanClassName="block"
+                    >
+                      Indonesia
+                    </BtnToggle>
+                    <BtnToggle
+                      toggleClassName="w-full py-2 mb-3 border-zinc-700 justify-between"
+                      iconClassName="hidden"
+                      spanClassName="block"
+                    >
+                      Film
+                    </BtnToggle>
                   </div>
                 </div>
-                <div className="px-6 mt-5 flex gap-5 overflow-x-scroll md:px-12 lg:px-24 lg:gap-10 xl:px-36 ">
+                <div className="px-6 mt-5 flex gap-5 overflow-x-auto md:px-12 lg:px-24 lg:gap-10 xl:px-36 ">
                   <CardFilm>Baru Ditambahkan</CardFilm>
                   <CardFilm>Baru Ditambahkan</CardFilm>
                 </div>
@@ -162,8 +142,8 @@ const App = () => {
           </div>
         </div>
       </section>
-      <section className="py-10 pb-32 bg-black">
-        <div className="container">
+      <section className="py-10 bg-black">
+        <div className="container xl:mx-auto">
           <div className="w-full px-5 md:px-10 lg:px-20 xl:px-32">
             <div className="w-full">
               <SubJudul className="text-white">Tanya Jawab Umum</SubJudul>
@@ -208,6 +188,114 @@ const App = () => {
           </div>
         </div>
       </section>
+      <section className="py-10 bg-black">
+        <div className="container xl:mx-auto">
+          <div className="w-full px-5 md:px-10 lg:px-36 xl:px-52">
+            <div className="w-full">
+              <SmallDescription className="text-white md:text-center lg:text-lg ">
+                Siap menonton?Masukkan email untuk membuat keanggotaan atau
+                memulai lagi keanggotaan.
+              </SmallDescription>
+              <div className="w-full mx-auto mt-5 sm:flex sm:items-start sm:gap-3 lg:gap-4">
+                <InputJoin
+                  id="alamat-email"
+                  errorHandle="Masukan alamat email yang valid!"
+                  labelClass="lg:h-14"
+                >
+                  Alamat Email
+                </InputJoin>
+                <Button className="mx-0 lg:h-14 lg:text-2xl">Mulai</Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer className="py-10 bg-black">
+        <div className="container xl:mx-auto">
+          <div className="w-full px-5 md:px-10 lg:px-20 xl:px-32">
+            <SmallDescription className="text-zinc-400 lg:text-lg">
+              Ada Pertanyaan? Hubungi{" "}
+              <span className="underline text-lg">007-803-321-2148</span>
+            </SmallDescription>
+            <div className="flex flex-wrap">
+              <div className="w-full md:w-1/3">
+                <ul>
+                  <li className="font-medium text-sm text-zinc-400 underline mb-2.5 lg:text-base">
+                    <a href="#">Tanya Jawab</a>
+                  </li>
+                  <li className="font-medium text-sm text-zinc-400 underline mb-2.5 lg:text-base">
+                    <a href="#">Pusat Bantuan</a>
+                  </li>
+                  <li className="font-medium text-sm text-zinc-400 underline mb-2.5 lg:text-base">
+                    <a href="#">Akun</a>
+                  </li>
+                  <li className="font-medium text-sm text-zinc-400 underline mb-2.5 lg:text-base">
+                    <a href="#">Pusat Media</a>
+                  </li>
+                  <li className="font-medium text-sm text-zinc-400 underline mb-2.5 lg:text-base">
+                    <a href="#">Hubungan Investor</a>
+                  </li>
+                  <li className="font-medium text-sm text-zinc-400 underline mb-2.5 lg:text-base">
+                    <a href="#">Lowongan Kerja</a>
+                  </li>
+                </ul>
+              </div>
+              <div className="w-full md:w-1/3">
+                <ul>
+                  <li className="font-medium text-sm text-zinc-400 underline mb-2.5 lg:text-base">
+                    <a href="#">Tukar Kartu Hadiah</a>
+                  </li>
+                  <li className="font-medium text-sm text-zinc-400 underline mb-2.5 lg:text-base">
+                    <a href="#">Beli Kartu Hadiah</a>
+                  </li>
+                  <li className="font-medium text-sm text-zinc-400 underline mb-2.5 lg:text-base">
+                    <a href="#">Cara Menonton</a>
+                  </li>
+                  <li className="font-medium text-sm text-zinc-400 underline mb-2.5 lg:text-base">
+                    <a href="#">Ketentuan Pengguna</a>
+                  </li>
+                  <li className="font-medium text-sm text-zinc-400 underline mb-2.5 lg:text-base">
+                    <a href="#">Privasi</a>
+                  </li>
+                  <li className="font-medium text-sm text-zinc-400 underline mb-2.5 lg:text-base">
+                    <a href="#">Preferensi Cookie</a>
+                  </li>
+                </ul>
+              </div>
+              <div className="w-full md:w-1/3">
+                <ul>
+                  <li className="font-medium text-sm text-zinc-400 underline mb-2.5 lg:text-base">
+                    <a href="#">Informasi Perusahaan</a>
+                  </li>
+                  <li className="font-medium text-sm text-zinc-400 underline mb-2.5 lg:text-base">
+                    <a href="#">Hubungi Kami</a>
+                  </li>
+                  <li className="font-medium text-sm text-zinc-400 underline mb-2.5 lg:text-base">
+                    <a href="#">Uji Kecepatan</a>
+                  </li>
+                  <li className="font-medium text-sm text-zinc-400 underline mb-2.5 lg:text-base">
+                    <a href="#">Informasi Legal</a>
+                  </li>
+                  <li className="font-medium text-sm text-zinc-400 underline mb-2.5 lg:text-base">
+                    <a href="#">Hanya di Netflix</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="w-[60%] justify-between my-5 md:w-1/3 lg:w-1/4 xl:w-[22%]">
+              <BtnToggle
+                toggleClassName="justify-between py-[0.2rem]"
+                icon={translate}
+                iconClassName="w-5 filter invert"
+              >
+                Bahasa Indonesia
+              </BtnToggle>
+              a
+              <SmallDescription className="text-sm text-zinc-400 lg:text-base">Netflix Indonesia</SmallDescription>
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };

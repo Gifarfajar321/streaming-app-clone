@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .clip-curve-top {
-  clip-path: ellipse(280% 100% at 50% 100%);
+  clip-path: ellipse(300% 100% at 50% 100%);
 }
 
 .bg-card-gradient {
