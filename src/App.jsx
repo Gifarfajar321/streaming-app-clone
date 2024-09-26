@@ -43,8 +43,8 @@ const App = () => {
         className="pt-28 pb-32 bg-black bg-cover bg-center relative after:content-[' '] after:absolute after:top-0 after:left-0 after:right-0 after:bottom-0 after:bg-black after:opacity-80 after:z-0 lg:min-h-screnn"
         style={{ backgroundImage: `url(${background})` }}
       >
-        <div className="container relative z-10 xl:mx-auto">
-          <div className="w-full mx-auto px-10 text-center mt-5 md:w-2/3 md:px-0 lg:w-1/2 xl:pt-20 xl:px-4">
+        <div className="container mx-auto relative z-10 ">
+          <div className="w-full mx-auto  px-10 text-center mt-5 md:w-2/3 md:px-0 lg:w-1/2 xl:pt-20 xl:px-4">
             <Judul className="text-white">
               Film, acara TV tak terbatas dan Banyak lagi
             </Judul>
@@ -56,7 +56,7 @@ const App = () => {
               keanggotanmu.
             </SmallDescription>
           </div>
-          <div className="w-full px-10 mx-auto mt-5 sm:flex sm:items-start sm:gap-3 md:w-3/4 lg:w-3/5 xl:px-32">
+          <div className="w-ful px-10 mx-auto mt-5 sm:flex sm:items-start sm:gap-3 md:w-3/4 lg:w-3/5 xl:px-32">
             <InputJoin id="email" errorHandle="Masukan alamat email yang vaild">
               Alamat email
             </InputJoin>
@@ -69,7 +69,7 @@ const App = () => {
           <div className="relative w-full min-h-screen bg-gradient-to-t from-red-700 to-transparent">
             <div className="bottom-0 left-0 w-full h-full bg-gradient-to-b from-black to-black clip-curve-top pt-14 pb-14">
               <div className="container mx-auto">
-                <div className="w-full px-5 md:px-10 lg:px-20 xl:px-32">
+                <div className="w-full mx-auto px-5 md:px-10 lg:px-20 xl:px-32">
                   <SubJudul className="text-white">
                     Sedang Trend Sekarang
                   </SubJudul>
@@ -143,7 +143,7 @@ const App = () => {
         </div>
       </section>
       <section className="py-10 bg-black">
-        <div className="container xl:mx-auto">
+        <div className="container mx-auto">
           <div className="w-full px-5 md:px-10 lg:px-20 xl:px-32">
             <div className="w-full">
               <SubJudul className="text-white">Tanya Jawab Umum</SubJudul>
@@ -189,7 +189,7 @@ const App = () => {
         </div>
       </section>
       <section className="py-10 bg-black">
-        <div className="container xl:mx-auto">
+        <div className="container mx-auto">
           <div className="w-full px-5 md:px-10 lg:px-36 xl:px-52">
             <div className="w-full">
               <SmallDescription className="text-white md:text-center lg:text-lg ">
@@ -211,7 +211,7 @@ const App = () => {
         </div>
       </section>
       <footer className="py-10 bg-black">
-        <div className="container xl:mx-auto">
+        <div className="container mx-auto">
           <div className="w-full px-5 md:px-10 lg:px-20 xl:px-32">
             <SmallDescription className="text-zinc-400 lg:text-lg">
               Ada Pertanyaan? Hubungi{" "}
@@ -291,7 +291,9 @@ const App = () => {
                 Bahasa Indonesia
               </BtnToggle>
               a
-              <SmallDescription className="text-sm text-zinc-400 lg:text-base">Netflix Indonesia</SmallDescription>
+              <SmallDescription className="text-sm text-zinc-400 lg:text-base">
+                Netflix Indonesia
+              </SmallDescription>
             </div>
           </div>
         </div>
