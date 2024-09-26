@@ -13,7 +13,7 @@ const header = (props) => {
 
   return (
     <h2
-      className={`font-bold text-2xl text-white mb-2 xl:text-[1.4rem] ${className}`}
+      className={`font-bold text-2xl text-white mb-3 xl:text-[1.6rem] ${className}`}
     >
       {children}
     </h2>
@@ -24,7 +24,7 @@ const body = (props) => {
 
   return (
     <p
-      className={`font-medium text-base text-slate-400 leading-snug xl:text-sm ${className}`}
+      className={`font-medium text-base text-slate-400 leading-snug ${className}`}
     >
       {children}
     </p>
