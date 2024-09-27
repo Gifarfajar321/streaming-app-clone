@@ -1,9 +1,20 @@
+import { useEffect, useState } from "react";
 import BtnToggle from "../elements/BtnToggle/BtnToggle";
 import CardFilm from "../elements/card/CardFilm";
 import CardReason from "../elements/card/CardReason";
 import SubJudul from "../elements/SubJudul";
+import { getListMovies } from "../../services/listmovies.services";
 
 const AboutSection = () => {
+  const [listMovie, setListMovie] = useState([]);
+  const limitListMovie = listMovie.slice(0, 6);
+
+  useEffect(() => {
+    getListMovies((data) => {
+      setListMovie(data.results);
+    });
+  }, []);
+
   return (
     <>
       <div className="w-full mx-auto px-5 md:px-10 lg:px-20 xl:px-32">
@@ -25,9 +36,16 @@ const AboutSection = () => {
           </BtnToggle>
         </div>
       </div>
-      <div className="px-6 py-2 mt-2 flex gap-5 overflow-x-auto md:px-12 lg:px-24 lg:gap-10 xl:px-36 ">
-        <CardFilm>Baru Ditambahkan</CardFilm>
-        <CardFilm>Baru Ditambahkan</CardFilm>
+      <div className="px-6 py-2 mt-2 flex flex-nowrap gap-5 overflow-x-auto scrollbar-hide md:px-12 lg:px-24 lg:gap-10 xl:px-32">
+        {limitListMovie.length > 0 &&
+          limitListMovie.map((movie) => (
+            <CardFilm
+              key={movie.id}
+              image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            >
+              Baru Ditambahkan
+            </CardFilm>
+          ))}
       </div>
       <div className="w-full px-6 md:px-10 lg:px-20 xl:px-32">
         <SubJudul className="text-white">
