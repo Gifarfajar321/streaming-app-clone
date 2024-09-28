@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import BtnToggle from "../elements/BtnToggle/BtnToggle";
 import CardFilm from "../elements/card/CardFilm";
 import CardReason from "../elements/card/CardReason";
@@ -7,13 +7,39 @@ import { getListMovies } from "../../services/listmovies.services";
 
 const AboutSection = () => {
   const [listMovie, setListMovie] = useState([]);
-  const limitListMovie = listMovie.slice(0, 6);
+  const limitListMovie = listMovie.slice(0, 10);
 
   useEffect(() => {
     getListMovies((data) => {
       setListMovie(data.results);
     });
   }, []);
+
+  const scrollCardRef = useRef(null);
+  const scrollRightRef = useRef(null);
+  const scrollLefttRef = useRef(null);
+
+  const onScrollRight = () => {
+    scrollCardRef.current.scrollTo({
+      left: scrollCardRef.current.scrollWidth,
+      behavior: "smooth",
+    });
+    scrollRightRef.current.classList.add("scroll-x-min");
+    scrollRightRef.current.classList.remove("scroll-x-plus");
+    scrollLefttRef.current.classList.add("scroll-x-plus");
+    scrollLefttRef.current.classList.remove("scroll-x-min");
+  };
+
+  const onScrollLeft = () => {
+    scrollCardRef.current.scrollTo({
+      left: 0,
+      behavior: "smooth",
+    });
+    scrollRightRef.current.classList.remove("scroll-x-min");
+    scrollRightRef.current.classList.add("scroll-x-plus");
+    scrollLefttRef.current.classList.remove("scroll-x-plus");
+    scrollLefttRef.current.classList.add("scroll-x-min");
+  };
 
   return (
     <>
@@ -36,16 +62,48 @@ const AboutSection = () => {
           </BtnToggle>
         </div>
       </div>
-      <div className="px-6 py-2 mt-2 flex flex-nowrap gap-5 overflow-x-auto scrollbar-hide md:px-12 lg:px-24 lg:gap-10 xl:px-32">
-        {limitListMovie.length > 0 &&
-          limitListMovie.map((movie) => (
-            <CardFilm
-              key={movie.id}
-              image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            >
-              Baru Ditambahkan
-            </CardFilm>
-          ))}
+      <div className="px-4 py-2 mt-2 gap-3 flex flex-nowrap md:px-12 lg:px-20 xl:px-20">
+        <div
+          className="scroll-x-min flex items-center pb-7 mx-auto"
+          ref={scrollLefttRef}
+        >
+          <div
+            className="w-full h-28 bg-zinc-500 rounded-3xl flex justify-center lg:h-36"
+            onClick={() => onScrollLeft()}
+          >
+            <div className="w-5 h-5 text-xs text-transparent ml-3 self-center border-l-[3px] border-t-[3px] border-white -rotate-45 lg:w-7 lg:h-[1.1rem] xl:h-5">
+              .
+            </div>
+          </div>
+        </div>
+        <div
+          className="max-w-[90%] w-auto flex gap-3 overflow-x-hidden lg:gap-5"
+          ref={scrollCardRef}
+        >
+          {limitListMovie.length > 0 &&
+            limitListMovie.map((movie) => (
+              <CardFilm
+                key={movie.id}
+                image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              >
+                Baru Ditambahkan
+              </CardFilm>
+            ))}
+        </div>
+
+        <div
+          className="scroll-x-plus flex items-center pb-7 mx-auto"
+          ref={scrollRightRef}
+        >
+          <div
+            className="w-full h-28 bg-zinc-500 rounded-3xl flex justify-center lg:h-36"
+            onClick={() => onScrollRight()}
+          >
+            <div className="w-5 h-5 text-xs text-transparent mr-3 self-center border-r-[3px] border-t-[3px] border-white rotate-45 lg:w-7 lg:h-[1.1rem] xl:h-5">
+              .
+            </div>
+          </div>
+        </div>
       </div>
       <div className="w-full px-6 md:px-10 lg:px-20 xl:px-32">
         <SubJudul className="text-white">

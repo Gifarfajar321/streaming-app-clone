@@ -20,5 +20,25 @@
 }
 
 .toggle-btn {
-  @apply -rotate-45
+  @apply -rotate-45;
+}
+
+/* .scrol-x-plus {
+  @apply w-[8%] visible md:w-[5%] lg:w-[4%] xl:w-[3%] transition-all duration-1000 ease-in-out;
+}
+
+.scroll-x-min {
+  @apply w-0 invisible md:w-0 lg:w-0 xl:w-0 transition-all duration-300 ease-in-out;
+} */
+
+.scroll-x-min {
+  @apply w-0 md:w-0 lg:w-0 xl:w-0;
+  visibility: hidden;
+  transition: width 0.3s ease, visibility 0.3s ease;
+}
+
+.scroll-x-plus {
+  @apply w-[8%] md:w-[5%] lg:w-[3.5%] xl:w-[2.5%];
+  visibility: visible;
+  transition: width 0.3s ease, visibility 0.3s ease;
 }

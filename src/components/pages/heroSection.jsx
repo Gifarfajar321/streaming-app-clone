@@ -1,4 +1,4 @@
-import background from "../../assets/Image/netflix-img/images/header-image.png";
+import background from "../../assets/Image/netflix-img/images/netflix-background-.png";
 import HeroSection from "../fragments/HeroSection";
 import AuthLayout from "../layout/AuthLayout";
 
