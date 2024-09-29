@@ -1,7 +1,7 @@
 const CardReason = ({ children }) => {
   return (
     <>
-      <div className="w-full h-56 rounded-lg bg-card-gradient px-4 py-5 mb-2 md:h-48 lg:h-56 lg:w-[49%] xl:w-[22.5%] xl:h-[21rem] xl:rounded-xl">
+      <div className="relative w-full h-56 rounded-lg bg-card-gradient px-4 py-5 mb-3 md:h-48 lg:h-56 lg:w-[49%] xl:w-[22.5%] xl:h-[21rem] xl:rounded-xl">
         {children}
       </div>
     </>
@@ -13,7 +13,7 @@ const header = (props) => {
 
   return (
     <h2
-      className={`font-bold text-2xl text-white mb-3 xl:text-[1.6rem] ${className}`}
+      className={`font-bold text-[1.4rem] text-white mb-3 lg:text-3xl ${className}`}
     >
       {children}
     </h2>
@@ -31,7 +31,20 @@ const body = (props) => {
   );
 };
 
+const icon = (props) => {
+  const { image } = props;
+
+  return (
+    <>
+      <div className="w-12 h-12 absolute bottom-3 right-3 lg:w-14 lg:h-14">
+        <img src={image} alt={image} />
+      </div>
+    </>
+  );
+};
+
 CardReason.body = body;
 CardReason.header = header;
+CardReason.icon = icon;
 
 export default CardReason;

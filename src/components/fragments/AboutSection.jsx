@@ -4,6 +4,11 @@ import CardFilm from "../elements/card/CardFilm";
 import CardReason from "../elements/card/CardReason";
 import SubJudul from "../elements/SubJudul";
 import { getListMovies } from "../../services/listmovies.services";
+import arrow from "../../assets/Image/netflix-img/images/arrow-icon.png";
+import display from "../../assets/Image/netflix-img/images/display-icon.png";
+import download from "../../assets/Image/netflix-img/images/download-icon.png";
+import teleskop from "../../assets/Image/netflix-img/images/teles-icon.png";
+import profils from "../../assets/Image/netflix-img/images/acc-icon.png";
 
 const AboutSection = () => {
   const [listMovie, setListMovie] = useState([]);
@@ -68,16 +73,16 @@ const AboutSection = () => {
           ref={scrollLefttRef}
         >
           <div
-            className="w-full h-28 bg-zinc-500 rounded-3xl flex justify-center lg:h-36"
+            className="w-full h-28 bg-zinc-700 rounded-3xl flex justify-center items-center cursor-pointer lg:h-40"
             onClick={() => onScrollLeft()}
           >
-            <div className="w-5 h-5 text-xs text-transparent ml-3 self-center border-l-[3px] border-t-[3px] border-white -rotate-45 lg:w-7 lg:h-[1.1rem] xl:h-5">
-              .
+            <div className="w-7 h-7 rotate-180">
+              <img src={arrow} alt="arrow" />
             </div>
           </div>
         </div>
         <div
-          className="max-w-[90%] w-auto flex gap-3 overflow-x-hidden lg:gap-5"
+          className="max-w-[90%] w-auto flex gap-3 overflow-x-hidden lg:gap-5 "
           ref={scrollCardRef}
         >
           {limitListMovie.length > 0 &&
@@ -96,11 +101,11 @@ const AboutSection = () => {
           ref={scrollRightRef}
         >
           <div
-            className="w-full h-28 bg-zinc-500 rounded-3xl flex justify-center lg:h-36"
+            className="w-full h-28 bg-zinc-700 rounded-3xl flex justify-center items-center cursor-pointer lg:h-40"
             onClick={() => onScrollRight()}
           >
-            <div className="w-5 h-5 text-xs text-transparent mr-3 self-center border-r-[3px] border-t-[3px] border-white rotate-45 lg:w-7 lg:h-[1.1rem] xl:h-5">
-              .
+            <div className="w-7 h-7">
+              <img src={arrow} alt="arrow" />
             </div>
           </div>
         </div>
@@ -116,6 +121,7 @@ const AboutSection = () => {
               Tonton di Smart TV, Playstation, Xbox, Chromecast, Apple TV,
               Pemutar Blure-ray, dan banyak lagi.
             </CardReason.body>
+            <CardReason.icon image={display} />
           </CardReason>
 
           <CardReason>
@@ -126,6 +132,7 @@ const AboutSection = () => {
               Simpan favoritmu dengan mudah agar selalu ada acara TV dan film
               yang bisa ditonton.
             </CardReason.body>
+            <CardReason.icon image={download} />
           </CardReason>
 
           <CardReason>
@@ -134,6 +141,7 @@ const AboutSection = () => {
               Streaming film dan acara TV tidak terbatas di ponsel, tablet,
               laptop, dan TV-mu.
             </CardReason.body>
+            <CardReason.icon image={teleskop} />
           </CardReason>
 
           <CardReason>
@@ -142,6 +150,7 @@ const AboutSection = () => {
               Kirim anak-anak bertualang bersama karakter favorit didunia yang
               dibuat khusus untuk mereka -- gratis dengan keanggotanmu
             </CardReason.body>
+            <CardReason.icon image={profils} />
           </CardReason>
         </div>
       </div>
