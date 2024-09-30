@@ -42,3 +42,13 @@
   visibility: visible;
   transition: width 0.3s ease, visibility 0.3s ease;
 }
+
+.modal-movie-active {
+  @apply z-10 scale-100 opacity-100 transition-all ease-in-out duration-300;
+}
+
+.modal-movie-close {
+  @apply -z-10 scale-75 opacity-0 transition-all ease-out duration-300;
+}
+
+

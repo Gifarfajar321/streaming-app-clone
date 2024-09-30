@@ -10,4 +10,4 @@ const SmallDescription = (props) => {
   );
 };
 
-export default SmallDescription;
+export default SmallDescription
