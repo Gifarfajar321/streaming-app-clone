@@ -51,4 +51,6 @@
   @apply -z-10 scale-75 opacity-0 transition-all ease-out duration-300;
 }
 
-
+.backdrop-bg {
+  @apply after:content-[""] after:absolute after:top-0 after:bottom-0 after:left-0 after:right-0 after:bg-black after:opacity-50 after:z-10;
+}
